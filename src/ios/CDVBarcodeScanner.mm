@@ -502,15 +502,18 @@ parentViewController:(UIViewController*)parentViewController
     
     try {
         DecodeHints decodeHints;
-        decodeHints.addFormat(BarcodeFormat_QR_CODE);
+/*        decodeHints.addFormat(BarcodeFormat_QR_CODE);
         decodeHints.addFormat(BarcodeFormat_DATA_MATRIX);
         decodeHints.addFormat(BarcodeFormat_UPC_E);
         decodeHints.addFormat(BarcodeFormat_UPC_A);
         decodeHints.addFormat(BarcodeFormat_EAN_8);
+*/        
         decodeHints.addFormat(BarcodeFormat_EAN_13);
+/*        
         decodeHints.addFormat(BarcodeFormat_CODE_128);
         decodeHints.addFormat(BarcodeFormat_CODE_39);
         decodeHints.addFormat(BarcodeFormat_ITF);
+*/
         
         // here's the meat of the decode process
         Ref<LuminanceSource>   luminanceSource   ([self getLuminanceSourceFromSample: sampleBuffer imageBytes:&imageBytes]);
@@ -560,15 +563,18 @@ parentViewController:(UIViewController*)parentViewController
 // convert barcode format to string
 //--------------------------------------------------------------------------
 - (NSString*)formatStringFrom:(zxing::BarcodeFormat)format {
-    if (format == zxing::BarcodeFormat_QR_CODE)      return @"QR_CODE";
+/*    if (format == zxing::BarcodeFormat_QR_CODE)      return @"QR_CODE";
     if (format == zxing::BarcodeFormat_DATA_MATRIX)  return @"DATA_MATRIX";
     if (format == zxing::BarcodeFormat_UPC_E)        return @"UPC_E";
     if (format == zxing::BarcodeFormat_UPC_A)        return @"UPC_A";
     if (format == zxing::BarcodeFormat_EAN_8)        return @"EAN_8";
+*/    
     if (format == zxing::BarcodeFormat_EAN_13)       return @"EAN_13";
+/*    
     if (format == zxing::BarcodeFormat_CODE_128)     return @"CODE_128";
     if (format == zxing::BarcodeFormat_CODE_39)      return @"CODE_39";
     if (format == zxing::BarcodeFormat_ITF)          return @"ITF";
+ */   
     return @"???";
 }
 
